@@ -8,7 +8,7 @@ Install the plugin
 
     $ cordova plugin add https://github.com/seajas/cordova-plugin-adyen.git
 
-An `AdyenPlugin` class is exposed with a single function, `present(scheme, function(token) { .. }) : Promise`. `scheme` should contain your app's custom URL. This is needed if you use payments which redirect to other apps or websites. `function(token) : Promise` should pass the `token` to your backend and return the generated `payload` as a Promise.
+`AdyenPlugin` is exposed with a single function, `present(scheme, function(token) { .. }) : Promise`. `scheme` should contain your app's custom URL. This is needed if you use payments which redirect to other apps or websites. `function(token) : Promise` should pass the `token` from the SDK to your backend and return the `payload` inside of a Promise.
 
 Usage example
 
