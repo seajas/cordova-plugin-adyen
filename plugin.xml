@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="com.seajas.cordova.adyen" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>AdyenPlugin</name>
+    <description>Adyen SDK quick integration support for Cordova</description>
+    <keywords>adyen, payments</keywords>
+
+    <engines>
+        <engine name="cordova" version=">= 4.3.0"/>
+    </engines>
+
+    <asset src="www/adyen.js" target="js/adyen.js"/>
+
+    <js-module name="AdyenPlugin" src="www/adyen.js">
+        <clobbers target="AdyenPlugin" />
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="AdyenPlugin">
+                <param name="ios-package" value="AdyenPlugin" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/ios/AdyenPlugin.swift" />
+
+        <pods-config ios-min-version="9.0" use-frameworks="true" />
+        <pod name="Adyen" version="1.4.0" />
+
+        <dependency id="cordova-plugin-cocoapod-support" version="1.3.0" />
+        <dependency id="cordova-plugin-add-swift-support" version="1.7.0" />
+    </platform>
+</plugin>

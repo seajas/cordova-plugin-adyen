@@ -1,0 +1,41 @@
+{
+  "name": "cordova-plugin-adyen",
+  "version": "0.0.1",
+  "description": "Adyen Quick Integration Plugin For Cordova",
+
+  "keywords": [
+    "adyen",
+    "payments",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+
+  "author": "Seajas",
+  "license": "BSD",
+
+  "homepage": "https://github.com/seajas/cordova-plugin-adyen#readme",
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seajas/cordova-plugin-adyen.git"
+  },
+  "bugs": {
+    "url": "https://github.com/seajas/cordova-plugin-adyen/issues"
+  },
+
+  "cordova": {
+    "id": "com.seajas.cordova.adyen",
+    "platforms": [
+      "ios"
+    ]
+  },
+
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">= 4.3.0"
+    }
+  ],
+
+  "dependencies": { }
+}
