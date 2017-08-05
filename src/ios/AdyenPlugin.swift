@@ -59,32 +59,34 @@ extension AdyenPlugin: CheckoutViewControllerDelegate {
     }
     
     func checkoutViewController(_ controller: CheckoutViewController, didFinishWith result: PaymentRequestResult) {
-        var success: Bool = false, cancelled: Bool = false
-        var payload: String = "", errorMessage: String = ""
-        
+        var pluginResult: CDVPluginResult
+
         switch result {
             case let .payment(payment):
-                success = payment.status == .authorised
-                payload = payment.payload
+                if (payment.status == .authorised || payment.status == .received) {
+                    pluginResult = CDVPluginResult(
+                        status: CDVCommandStatus_OK,
+                        messageAs: payment.payload
+                    )
+                } else {
+                    pluginResult = CDVPluginResult(
+                        status: CDVCommandStatus_ERROR,
+                        messageAs: "Payment was not \(payment.status.rawValue)"
+                    )
+                }
             case let .error(error):
                 switch error {
                     case .canceled:
-                        cancelled = true
+                        pluginResult = CDVPluginResult(
+                            status: CDVCommandStatus_ERROR,
+                            messageAs: "Payment was cancelled"
+                        )
                     default:
-                        errorMessage = error.localizedDescription
+                        pluginResult = CDVPluginResult(
+                            status: CDVCommandStatus_ERROR,
+                            messageAs: error.localizedDescription
+                        )
                 }
-        }
-        
-        var pluginResult: CDVPluginResult = CDVPluginResult(
-          status: CDVCommandStatus_ERROR,
-          messageAs: cancelled ? "Payment was cancelled." : errorMessage
-        )
-
-        if success {
-            pluginResult = CDVPluginResult(
-                status: CDVCommandStatus_OK,
-                messageAs: payload
-            )
         }
 
         commandDelegate!.send(pluginResult, callbackId: self.callbackId)
