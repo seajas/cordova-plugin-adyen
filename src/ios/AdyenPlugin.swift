@@ -71,7 +71,7 @@ extension AdyenPlugin: CheckoutViewControllerDelegate {
                 } else {
                     pluginResult = CDVPluginResult(
                         status: CDVCommandStatus_ERROR,
-                        messageAs: "Payment was not \(payment.status.rawValue)"
+                        messageAs: "Payment was \(payment.status.rawValue)"
                     )
                 }
             case let .error(error):
