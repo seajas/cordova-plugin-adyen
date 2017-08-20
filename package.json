@@ -24,7 +24,7 @@
   },
 
   "cordova": {
-    "id": "com.seajas.cordova.adyen",
+    "id": "cordova-plugin-adyen",
     "platforms": [
       "ios"
     ]
