@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-adyen",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Adyen Quick Integration Plugin For Cordova",
 
   "keywords": [

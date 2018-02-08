@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin id="cordova-plugin-adyen" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="cordova-plugin-adyen" version="0.0.2" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>AdyenPlugin</name>
     <description>Adyen SDK quick integration support for Cordova</description>
     <keywords>adyen, payments</keywords>
@@ -24,10 +24,10 @@
         <source-file src="src/ios/AdyenPlugin.swift" />
 
         <pods-config ios-min-version="9.0" use-frameworks="true" />
-        <pod name="Adyen" version="1.5.0" />
+        <pod name="Adyen" version="1.16.0" />
 
         <dependency id="cordova-plugin-cocoapod-support" version="1.3.0" />
-        <dependency id="cordova-plugin-add-swift-support" version="1.7.0" />
+        <dependency id="cordova-plugin-add-swift-support" version="1.7.1" />
 
         <hook type="before_compile" src="scripts/fixCB12212.js" />
     </platform>
